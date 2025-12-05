@@ -68,6 +68,13 @@ def user_dashboard():
     return render_template('user_dashboard.html', username=session.get('user'))
 
 
+@main.route('/logout')
+def logout():
+    session.clear()
+    flash('You have been logged out', 'success')
+    return redirect(url_for('main.login'))
+
+
 @main.route('/change-password', methods=['GET', 'POST'])
 def change_password():
     # Require basic "login" state
@@ -81,6 +88,7 @@ def change_password():
         current_password = request.form.get('current_password', '')
         new_password = request.form.get('new_password', '')
 
+        #change this
         user = db.session.execute(
             text(f"SELECT * FROM user WHERE username = '{username}' AND password = '{current_password}' LIMIT 1")
         ).mappings().first()

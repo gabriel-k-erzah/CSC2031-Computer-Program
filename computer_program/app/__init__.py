@@ -15,18 +15,20 @@ def create_app():
 
     with app.app_context():
         from .models import User
-        db.drop_all()
+        # Create tables if they don't exist
         db.create_all()
 
-        users = [
-            {"username": "user1@email.com", "password": "Userpass!23", "role": "user", "bio": "I'm a basic user"},
-            {"username": "mod1@email.com", "password": "Modpass!23", "role": "moderator", "bio": "I'm a moderator"},
-            {"username": "admin1@email.com", "password": "Adminpass!23", "role": "admin", "bio": "I'm an administrator"}
-        ]
+        # Seed temporary credentials only if the users table is empty
+        if User.query.count() == 0:
+            users = [
+                {"username": "user1@email.com", "password": "Userpass!23", "role": "user", "bio": "I'm a basic user"},
+                {"username": "mod1@email.com", "password": "Modpass!23", "role": "moderator", "bio": "I'm a moderator"},
+                {"username": "admin1@email.com", "password": "Adminpass!23", "role": "admin", "bio": "I'm an administrator"}
+            ]
 
-        for user in users:
-            user = User(username=user["username"], password=user["password"], role=user["role"], bio=user["bio"])
-            db.session.add(user)
+            db.session.bulk_save_objects([
+                User(username=u["username"], password=u["password"], role=u["role"], bio=u["bio"]) for u in users
+            ])
             db.session.commit()
 
     return app

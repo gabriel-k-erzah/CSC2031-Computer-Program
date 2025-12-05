@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block title %}Home{% endblock %}
+
 {% block content %}
-<h1>Home</h1>
-<p>Welcome to the sample Flask app.</p>
+    <h1>Home</h1>
+    <p>Welcome to the sample Flask app.</p>
+
+    <div class="auth-links">
+        <a href="{{ url_for('main.login') }}" class="btn btn-primary">Login</a>
+        <a href="{{ url_for('main.register') }}" class="btn btn-secondary">Register</a>
+    </div>
 {% endblock %}
-
-
