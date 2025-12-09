@@ -10,7 +10,7 @@ def create_app():
 
     db.init_app(app)
 
-    from .routes import main
+    from app.auth.routes import main
     app.register_blueprint(main)
 
     with app.app_context():
