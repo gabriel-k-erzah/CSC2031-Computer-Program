@@ -8,9 +8,10 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 
+    # Initialize Flask-SQLAlchemy
     db.init_app(app)
 
-    from app.auth.routes import main
+    from app.security.routes import main
     app.register_blueprint(main)
 
     with app.app_context():
