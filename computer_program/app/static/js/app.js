@@ -1,5 +1,3 @@
-//commented out the javascript code.
-/*
 function showWelcome(name) {
   if (typeof Swal === 'undefined') {
     console.error('SweetAlert2 not loaded');
@@ -21,4 +19,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
- */
