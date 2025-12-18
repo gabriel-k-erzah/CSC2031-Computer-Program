@@ -1,3 +1,4 @@
+"""
 from flask import Blueprint, render_template, redirect, url_for, request, session, flash
 from werkzeug.security import generate_password_hash, check_password_hash
 
@@ -72,3 +73,4 @@ def dashboard():
 @roles_required("admin")
 def admin_only():
     return render_template("admin.html")
+"""
