@@ -1,9 +1,17 @@
 {% extends "base.html" %}
 {% block title %}Moderator{% endblock %}
+
 {% block content %}
 <h1>Moderator</h1>
+
 <div class="mb-3">
-  <a href="{{ url_for('main.logout') }}" class="btn btn-outline-danger btn-sm">Logout</a>
+  <form method="POST" action="{{ url_for('main.logout') }}">
+    {{ csrf_token() }}
+    <button type="submit" class="btn btn-outline-danger btn-sm">
+      Logout
+    </button>
+  </form>
 </div>
+
 <p>Welcome Moderator! You can review content here.</p>
 {% endblock %}

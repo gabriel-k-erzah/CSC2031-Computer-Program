@@ -1,11 +1,55 @@
 {% extends "base.html" %}
 {% block title %}Register{% endblock %}
+
 {% block content %}
 <h1>Register</h1>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <p class="text-danger">{{ message }}</p>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
 <form method="POST" novalidate>
-  Username: <input type="text" name="username"><br>
-  Password: <input type="password" name="password"><br>
-  Biography: <input type="text" name="bio"><br>
-  <input type="submit" value="Register">
+  {{ form.csrf_token }}
+
+  <div>
+    {{ form.username.label }}
+    {{ form.username() }}
+    {% for err in form.username.errors %}
+      <p class="text-danger">{{ err }}</p>
+    {% endfor %}
+  </div>
+
+  <div>
+    {{ form.password.label }}
+    {{ form.password() }}
+    {% for err in form.password.errors %}
+      <p class="text-danger">{{ err }}</p>
+    {% endfor %}
+  </div>
+
+  <div>
+    {{ form.bio.label }}
+    {{ form.bio(rows=4) }}
+    {% for err in form.bio.errors %}
+      <p class="text-danger">{{ err }}</p>
+    {% endfor %}
+  </div>
+
+  {# Only include if your RegistrationForm has role + submit fields #}
+  {% if form.role is defined %}
+  <div>
+    {{ form.role.label }}
+    {{ form.role() }}
+    {% for err in form.role.errors %}
+      <p class="text-danger">{{ err }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {{ form.submit() }}
 </form>
 {% endblock %}
