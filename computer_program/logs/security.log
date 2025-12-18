@@ -1,0 +1,9 @@
+2025-12-18 13:11:22,887 - INFO - LOGIN_SUCCESS | user=user1@email.com | role=user | ip=127.0.0.1
+2025-12-18 13:11:22,932 - WARNING - 404_NOT_FOUND | path=/apple-touch-icon-precomposed.png | ip=127.0.0.1
+2025-12-18 13:11:22,932 - WARNING - 404_NOT_FOUND | path=/apple-touch-icon.png | ip=127.0.0.1
+2025-12-18 13:11:22,932 - WARNING - 404_NOT_FOUND | path=/favicon.ico | ip=127.0.0.1
+2025-12-18 13:16:00,494 - INFO - LOGIN_SUCCESS | user=user1@email.com | role=user | ip=127.0.0.1
+2025-12-18 13:16:04,791 - INFO - LOGOUT | user=user1@email.com | role=user | ip=127.0.0.1
+2025-12-18 13:24:22,562 - WARNING - LOGIN_FAIL | username=admin1@email.com | ip=127.0.0.1 | count_5min=1
+2025-12-18 13:24:33,211 - INFO - LOGIN_SUCCESS | user=admin1@email.com | role=admin | ip=127.0.0.1
+2025-12-18 13:25:02,884 - INFO - LOGOUT | user=admin1@email.com | role=admin | ip=127.0.0.1

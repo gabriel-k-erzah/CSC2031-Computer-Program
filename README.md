@@ -108,6 +108,11 @@ All code was:
 
 No code was submitted without comprehension or critical evaluation.
 
+## Author
+**Gabriel Erzah**  
+CSC2031 – Security Programming  
+Newcastle University
+
 ---
 
 ## Running the Application
@@ -116,3 +121,5 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 python3 run.py
+
+
